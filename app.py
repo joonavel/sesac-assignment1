@@ -90,7 +90,7 @@ if st.session_state.started:
         result = st.session_state.pipe(response.content)
         label = "긍정" if result[0]['label'] == "1" else "부정"
         score = result[0]['score']
-        ai_answer = response.content + f"이 답변은 {score * 100:.2f}%의 확률로 {label}적 입니다."
+        ai_answer = response.content + f"이 답변은 {score * 100:.3f}%의 확률로 {label}적 입니다."
     # 출력 결과 저장 및 출력    
         st.session_state.conversation[session_id].append(ChatMessage(role='ai', content=ai_answer))
         st.chat_message("ai").write(ai_answer)
